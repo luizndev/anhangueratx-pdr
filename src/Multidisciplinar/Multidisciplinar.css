@@ -1,0 +1,93 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Signika:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --cor-principal: #FF2800;
+  --cor-branca: #fff;
+  --cor-input: #f5f5f71b;
+  --border-radius: 12.03px;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  gap: 15px;
+  top: 15%;
+  width: 100%;
+  overflow-y: scroll;
+  height: 85dvh;
+}
+
+
+.inputbox{
+  width: 75%;
+  display: flex;
+  flex-direction: column-reverse;
+  
+}
+
+.inputbox select{
+  width: 100% !important;
+}
+
+.inputbox input, .inputbox select, .inputbox option{
+  width: 100%;
+  outline: none;
+  background-color: #18191b7d;
+  border: none;
+  color: white;
+  font-size: 15px;
+  border-radius: 8px;
+  padding: 20px 20px;
+}
+
+.inputbox span{
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+#button-box-sucess{
+  width: 75% !important;
+  background-color: #FF2800;
+  color: white;
+  width: 100% !important;
+  margin-bottom: 100px;
+}
+
+.title-solic{
+  display: flex;
+  align-items: center;
+  justify-content:center ;
+  flex-direction: column;
+}
+
+
+.title-solic h1{
+  height: 20px;
+  text-transform: uppercase;
+  color: #FF2800;
+
+}
+
+.title-solic span{
+  color: rgba(255, 255, 255, 0.375);
+}
+
+#open-new-tab{
+  width: 103.5% !important;
+  background-color: #FFCC32;
+  color: #292929;
+  border: none;
+}
