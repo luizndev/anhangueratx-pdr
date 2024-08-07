@@ -11,6 +11,8 @@ import Solicitacoes from "./Solicitacoes/Solicitacoes.jsx";
 import MultidisciplinarInfo from "./MultidisciplinarInfo/MultidisciplinarInfo.jsx";
 import Informatica from "./Informatica/Informatica.jsx";
 import BuscarToken from "./Buscartoken/Index.jsx";
+import Sucesso from "./Sucesso/Sucesso.jsx";
+import Orientacoes from "./Orientacoes/Orientacoes.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -19,6 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/orientacoes" element={<Orientacoes />} />
         <Route path="/multidisciplinar/:id" element={<Multidisciplinar />} />
         <Route path="/admininfo" element={<BaseInformatica />} />
         <Route path="/solicitacoes/:id" element={<Solicitacoes />} />
@@ -27,6 +30,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           element={<MultidisciplinarInfo />}
         />
         <Route path="/dashboard/:id" element={<Dashboard />} />
+        <Route path="/sucesso/:token" element={<Sucesso />} />
         <Route path="/Informatica/:id" element={<Informatica />} />
         <Route path="/buscartoken/:id" element={<BuscarToken />} />
       </Routes>

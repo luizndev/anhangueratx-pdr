@@ -27,12 +27,12 @@ const Login = () => {
       );
 
       if (response.status === 200) {
-        const idVerify = response.data.userId;
-        const token = response.data.token;
-        localStorage.setItem("token", token);
-        localStorage.setItem("id", idVerify);
+        const idVerify = response.data.userId; // Aqui está o id do usuário
+        const token = response.data.token; // Aqui está o token
+        localStorage.setItem("token", token); // Armazenando o token no localStorage
+        localStorage.setItem("id", idVerify); // Armazenando o id no localStorage
         // console.log(response.data);
-        navigate(`/dashboard/${idVerify}`);
+        navigate(`/dashboard/${idVerify}`); // Navegando para o dashboard do usuário
       }
     } catch (error) {
       if (error.response) {

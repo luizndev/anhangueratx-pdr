@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Header.css";
 import Dropdown from "react-dropdown";
@@ -10,11 +10,14 @@ const Menu = () => {
   const [role, setRole] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
   const navigate = useNavigate();
-  const { id } = useParams();
   const [searchToken, setSearchToken] = useState("");
+  const id = localStorage.getItem("id"); // Obtendo o id do localStorage
 
-  // Log the id to verify it's being received correctly
-  console.log("Received id:", id);
+  useEffect(() => {
+    if (!id) {
+      navigate("/login"); // Redireciona para /login se não existir id no localStorage
+    }
+  }, [id, navigate]);
 
   const handleInputChange = (event) => {
     setSearchToken(event.target.value);
@@ -66,11 +69,19 @@ const Menu = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+    navigate("/login");
+  };
+
   return (
     <div className="containerDashboard">
       <header>
         <div className="dashboardLeft">
-          <img src="/logotipo.svg" alt="Logotipo" />
+          <Link to={`/dashboard/${id}`}>
+            <img src="/logotipo.svg" alt="Logotipo" />
+          </Link>
           <div className="groupPesquisa">
             <input
               type="text"
@@ -103,7 +114,12 @@ const Menu = () => {
               />
             )}
 
-            <li className="orientacoes">Orientações</li>
+            <li className="orientacoes">
+              <Link to={`/orientacoes`}>Orientações</Link>
+            </li>
+            <li className="logout" onClick={handleLogout}>
+              Logout
+            </li>
           </ul>
           <div className="profile">
             <img src="/profile.png" alt="Perfil" />

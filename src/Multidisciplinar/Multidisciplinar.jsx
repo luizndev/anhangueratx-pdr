@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; // Importar useNavigate
 import "./Multidisciplinar.css";
 import "react-dropdown/style.css";
-import Menu from "../Header/Header.jsx"; // Corrected path
+import Menu from "../Header/Header.jsx"; // Caminho corrigido
 
 const MultidisciplinarForm = () => {
   const [formData, setFormData] = useState({
@@ -27,6 +27,7 @@ const MultidisciplinarForm = () => {
   const [message, setMessage] = useState("");
   const [errorDetails, setErrorDetails] = useState(""); // Novo estado para detalhes do erro
   const { id } = useParams(); // Obter o parâmetro ID da URL
+  const navigate = useNavigate(); // Usar useNavigate para redirecionamento
 
   // Buscar dados quando o ID estiver disponível
   useEffect(() => {
@@ -92,16 +93,12 @@ const MultidisciplinarForm = () => {
       return today.toISOString().split("T")[0]; // Ajustar para hoje se a data estiver no passado
     }
 
+    const daysUntilNextWeek = 7 - today.getDay(); // Dias até o mesmo dia da próxima semana
     const minDate = new Date(today);
-    minDate.setDate(today.getDate() + 7); // Data mínima permitida é hoje + 7 dias
+    minDate.setDate(today.getDate() + daysUntilNextWeek); // Data mínima permitida é hoje + dias até a mesma semana
 
     if (selectedDate < minDate) {
-      const newDate = new Date(
-        today.getFullYear(),
-        today.getMonth(),
-        today.getDate() + 7
-      );
-      return newDate.toISOString().split("T")[0]; // Ajustar para a data mínima se a data estiver antes disso
+      return minDate.toISOString().split("T")[0]; // Ajustar para a data mínima se a data estiver antes disso
     }
 
     return date;
@@ -116,8 +113,9 @@ const MultidisciplinarForm = () => {
       return false; // Data está no passado
     }
 
+    const daysUntilNextWeek = 7 - today.getDay(); // Dias até o mesmo dia da próxima semana
     const minDate = new Date(today);
-    minDate.setDate(today.getDate() + 7); // Data mínima permitida é hoje + 7 dias
+    minDate.setDate(today.getDate() + daysUntilNextWeek); // Data mínima permitida é hoje + dias até a mesma semana
 
     if (selectedDate < minDate) {
       return false; // Data está antes da data mínima permitida
@@ -129,7 +127,7 @@ const MultidisciplinarForm = () => {
   // Função para gerar um token aleatório
   const generateToken = () => {
     const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let token = "LABS-";
     for (let i = 0; i < 6; i++) {
       token += characters.charAt(Math.floor(Math.random() * characters.length));
@@ -185,6 +183,7 @@ const MultidisciplinarForm = () => {
         token: "Não",
         status: "Não",
       });
+      navigate(`/sucesso/${token}`); // Redirecionar para a página de sucesso com o token
     } catch (error) {
       if (error.response && error.response.data) {
         setErrorDetails(error.response.data.message); // Configurar detalhes do erro

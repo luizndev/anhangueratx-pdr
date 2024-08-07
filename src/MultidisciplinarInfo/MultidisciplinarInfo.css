@@ -1,7 +1,7 @@
 body{
   background-color: #2F3136 !important;
   overflow-x: hidden;
-  overflow-y: hidden !important;
+  overflow-y: auto;
 }
 
 .containerDashboard{

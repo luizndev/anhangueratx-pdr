@@ -1,7 +1,7 @@
 body{
   background-color: #2F3136 !important;
   overflow-x: hidden;
-  overflow-y: auto;
+
 }
 
 .containerDashboard{
@@ -235,4 +235,68 @@ a{
 .orientacoes{
   margin-left: -15px;
   margin-right: 10px;
+}
+
+#h2here{
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #f4f4f4ba;
+}
+
+#tokenTxt{
+  font-weight: 300;
+}
+
+#h1here {
+  color: #FF2800;
+  font-weight: 900;
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.card p {
+  color: #fefefe9a !important ;
+  font-size:20px;
+  margin: 0;
+}
+#ihere {
+color: #FF2800;
+font-size: 100px;
+line-height: 200px;
+margin-left:-15px;
+}
+.card {
+  width: 50%;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+background: rgba(87, 87, 87, 0.027);
+padding: 60px;
+border-radius: 4px;
+display: inline-block;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+
+.checkmarkContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius:200px; 
+  height:200px; 
+  width:200px; 
+  background: #ff260010; 
+  margin:0 auto;
+}
+
+
+#copyToken{
+  cursor: pointer;
+  margin-left: 5px;
 }

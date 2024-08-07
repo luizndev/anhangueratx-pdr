@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import "./Dashboard.css";
+import "./Orientacoes.css";
 import "react-dropdown/style.css";
 import Menu from "../Header/Header.jsx"; // Corrected path
 
@@ -61,14 +61,16 @@ const Dashboard = () => {
       <Menu props={useParams()} />
       <section className="mainStyle-Container">
         <div className="mainStyle">
-          <h1>
-            Vem por aqui: reserve seu espaço no laboratório e transforme vidas
-          </h1>
+          <h1>Para mais orientações, visualize um documento online.</h1>
           <button>
-            <Link to={`/informatica/${id}`}>Realizar Reserva</Link>
+            <Link
+              to={`https://docs.google.com/document/d/19SgBi_ubw4YAQ-ly9KcK6AApKcntFeEbHWGncdg0vRc/edit?usp=sharing`}
+            >
+              Visualizar Orientações
+            </Link>
           </button>
         </div>
-        <img src="/image.svg" alt="Imagem" />
+        <img src="/livros.png" alt="Imagem" />
       </section>
 
       <section className="footerContainer">

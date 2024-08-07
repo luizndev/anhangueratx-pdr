@@ -1,7 +1,7 @@
 body{
   background-color: #2F3136 !important;
   overflow-x: hidden;
-  overflow-y: hidden !important;
+
 }
 
 .containerDashboard{
@@ -234,5 +234,8 @@ a{
 
 .orientacoes{
   margin-left: -15px;
-  margin-right: 10px;
+}
+
+.logout{
+  margin-left: -15px;
 }
