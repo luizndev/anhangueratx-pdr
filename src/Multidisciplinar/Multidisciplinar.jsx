@@ -93,7 +93,7 @@ const MultidisciplinarForm = () => {
     }
 
     const minDate = new Date(today);
-    minDate.setDate(today.getDate() + 7); // Data mínima permitida é hoje + 7 dias
+    minDate.setDate(today.getDate() + 6); // Data mínima permitida é hoje + 7 dias
 
     if (selectedDate < minDate) {
       return minDate.toISOString().split("T")[0]; // Ajustar para a data mínima se a data estiver antes disso

@@ -114,7 +114,7 @@ const InformaticaForm = () => {
     }
 
     const minDate = new Date(today);
-    minDate.setDate(today.getDate() + 7); // Data mínima permitida é hoje + 7 dias
+    minDate.setDate(today.getDate() + 6); // Data mínima permitida é hoje + 7 dias
 
     if (selectedDate < minDate) {
       return false; // Data está antes da data mínima permitida
