@@ -30,7 +30,7 @@ const Menu = () => {
       try {
         if (id) {
           const response = await axios.get(
-            `https://auth-6o53.onrender.com/auth/${id}`,
+            `https://pdr-auth.onrender.com/auth/${id}`,
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,

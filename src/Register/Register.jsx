@@ -35,7 +35,7 @@ const Register = () => {
 
     try {
       const response = await fetch(
-        "https://auth-6o53.onrender.com/auth/register",
+        "https://pdr-auth.onrender.com/auth/register",
         {
           method: "POST",
           headers: {

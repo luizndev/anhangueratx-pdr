@@ -19,7 +19,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "https://auth-6o53.onrender.com/auth/login",
+        "https://pdr-auth.onrender.com/auth/login",
         {
           email,
           password,

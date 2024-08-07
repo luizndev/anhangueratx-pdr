@@ -23,7 +23,7 @@ const MultidisciplinarInfo = () => {
       try {
         if (id) {
           const response = await axios.get(
-            `https://auth-6o53.onrender.com/auth/${id}`,
+            `https://pdr-auth.onrender.com/auth/${id}`,
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -48,7 +48,7 @@ const MultidisciplinarInfo = () => {
     const fetchInformaticaData = async () => {
       try {
         const response = await axios.get(
-          `https://auth-6o53.onrender.com/multidisciplinar`,
+          `https://pdr-auth.onrender.com/multidisciplinar`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -98,7 +98,7 @@ const MultidisciplinarInfo = () => {
     `;
 
     try {
-      await axios.post("https://auth-6o53.onrender.com/send-email", {
+      await axios.post("https://pdr-auth.onrender.com/send-email", {
         to: "destinatario@outlook.com",
         subject: "Confirmação de Solicitação",
         body: emailBody,
@@ -106,7 +106,7 @@ const MultidisciplinarInfo = () => {
 
       // Atualizar status para "Confirmação"
       await axios.put(
-        `https://auth-6o53.onrender.com/multidisciplinar/${item.id}`,
+        `https://pdr-auth.onrender.com/multidisciplinar/${item.id}`,
         {
           status: "Confirmação",
         }
@@ -136,7 +136,7 @@ const MultidisciplinarInfo = () => {
     // Atualizar status para "Negado"
     try {
       await axios.put(
-        `https://auth-6o53.onrender.com/multidisciplinar/${item.id}`,
+        `https://pdr-auth.onrender.com/multidisciplinar/${item.id}`,
         {
           status: "Negado",
         }

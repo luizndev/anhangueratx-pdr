@@ -35,7 +35,7 @@ const MultidisciplinarForm = () => {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            `https://auth-6o53.onrender.com/auth/${id}`,
+            `https://pdr-auth.onrender.com/auth/${id}`,
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -159,7 +159,7 @@ const MultidisciplinarForm = () => {
 
     try {
       const response = await axios.post(
-        "https://auth-6o53.onrender.com/multidisciplinar/register",
+        "https://pdr-auth.onrender.com/multidisciplinar/register",
         { ...formData, token } // Incluir o token gerado na solicitação
       );
       setMessage(response.data.message);
