@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import nodemailer from "nodemailer";
 import { useParams, useNavigate } from "react-router-dom";
 import "./Informatica.css";
 import "react-dropdown/style.css";
