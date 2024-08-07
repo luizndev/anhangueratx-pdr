@@ -238,12 +238,6 @@ const MultidisciplinarInfo = () => {
           </table>
         </div>
       </div>
-      <section className="footerContainer">
-        <img src="/Footer.svg" alt="Rodapé" />
-        <p>
-          Desenvolvido por: <Link to={"#"}>Luis Eduardo Andrade</Link>
-        </p>
-      </section>
     </div>
   );
 };

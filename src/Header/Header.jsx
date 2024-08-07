@@ -4,6 +4,10 @@ import axios from "axios";
 import "./Header.css";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
+import { FaBook } from "react-icons/fa6";
+import { FaListCheck } from "react-icons/fa6";
+import { IoLogOut } from "react-icons/io5";
+import { IoSearchSharp } from "react-icons/io5";
 
 const Menu = () => {
   const [username, setUsername] = useState("");
@@ -90,7 +94,9 @@ const Menu = () => {
               onChange={handleInputChange}
             />
             <button>
-              <Link to={`/buscartoken/${searchToken}`}>Buscar</Link>
+              <Link to={`/buscartoken/${searchToken}`}>
+                Buscar <IoSearchSharp />
+              </Link>
             </button>
           </div>
         </div>
@@ -98,11 +104,15 @@ const Menu = () => {
           <ul>
             {role === "ti" ? (
               <li>
-                <Link to={`/solicitacoes/${id}`}>Solicitações</Link>
+                <Link to={`/solicitacoes/${id}`}>
+                  <FaListCheck /> Solicitações
+                </Link>
               </li>
             ) : role === "labs" ? (
               <li>
-                <Link to={`/multidisciplinarinfo/${id}`}>Solicitações</Link>
+                <Link to={`/multidisciplinarinfo/${id}`}>
+                  <FaListCheck /> Solicitações
+                </Link>
               </li>
             ) : (
               <Dropdown
@@ -115,10 +125,12 @@ const Menu = () => {
             )}
 
             <li className="orientacoes">
-              <Link to={`/orientacoes`}>Orientações</Link>
+              <Link to={`/orientacoes`}>
+                <FaBook /> Orientações
+              </Link>
             </li>
             <li className="logout" onClick={handleLogout}>
-              Logout
+              <IoLogOut /> Logout
             </li>
           </ul>
           <div className="profile">
