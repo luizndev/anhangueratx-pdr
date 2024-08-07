@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import nodemailer from "nodemailer";
 import { useParams, useNavigate } from "react-router-dom";
 import "./Informatica.css";
 import "react-dropdown/style.css";
@@ -26,6 +27,7 @@ const InformaticaForm = () => {
   const { id } = useParams(); // Obter o parâmetro ID da URL
   const [selectedOption, setSelectedOption] = useState(null);
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
   const navigate = useNavigate(); // Hook para navegação
 
@@ -62,6 +64,7 @@ const InformaticaForm = () => {
 
           if (response.status === 200) {
             setUsername(response.data.user.name);
+            setEmail(response.data.user.email);
             setRole(response.data.user.role);
 
             // Atualize o estado do formulário com os dados retornados
@@ -92,7 +95,7 @@ const InformaticaForm = () => {
     }
 
     const minDate = new Date(today);
-    minDate.setDate(today.getDate() + 7); // Data mínima permitida é hoje + 7 dias
+    minDate.setDate(today.getDate() + 6); // Data mínima permitida é hoje + 7 dias
 
     if (selectedDate < minDate) {
       return minDate.toISOString().split("T")[0]; // Ajustar para a data mínima se a data estiver antes disso

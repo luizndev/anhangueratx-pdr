@@ -90,7 +90,7 @@ const Menu = () => {
               onChange={handleInputChange}
             />
             <button>
-              <Link to={`/buscartoken/${id}/${searchToken}`}>Buscar</Link>
+              <Link to={`/buscartoken/${searchToken}`}>Buscar</Link>
             </button>
           </div>
         </div>

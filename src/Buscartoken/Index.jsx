@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./Index.css";
 import Dropdown from "react-dropdown";
@@ -10,14 +10,9 @@ const Buscastoken = () => {
   const [role, setRole] = useState("");
   const [data, setData] = useState({});
   const [selectedOption, setSelectedOption] = useState(null);
-  const [searchToken, setSearchToken] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const { searchToken } = useParams();
   const navigate = useNavigate();
   const id = localStorage.getItem("id");
-
-  const handleInputChange = (event) => {
-    setSearchToken(event.target.value);
-  };
 
   const handleSearch = async () => {
     setIsLoading(true);
@@ -51,7 +46,7 @@ const Buscastoken = () => {
       try {
         if (id) {
           const response = await axios.get(
-            `https://pdr-auth.onrender.com/auth/${id}`,
+            `https://auth-6o53.onrender.com/auth/${id}`,
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -94,17 +89,6 @@ const Buscastoken = () => {
       <header>
         <div className="dashboardLeft">
           <img src="/logotipo.svg" alt="Logotipo" />
-          <div className="groupPesquisa">
-            <input
-              type="text"
-              placeholder="Pesquise o seu token..."
-              value={searchToken}
-              onChange={handleInputChange}
-            />
-            <button onClick={handleSearch} disabled={isLoading}>
-              {isLoading ? "Buscando..." : "Buscar"}
-            </button>
-          </div>
         </div>
         <div className="dashboardRight">
           <ul>

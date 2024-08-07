@@ -47,7 +47,6 @@ const MultidisciplinarForm = () => {
             setFormData((prevData) => ({
               ...prevData,
               professor: response.data.user.name,
-              // Defina outros campos conforme necessário
             }));
           }
         } catch (error) {
@@ -106,23 +105,22 @@ const MultidisciplinarForm = () => {
   const isDateValid = (date) => {
     const today = new Date();
     const selectedDate = new Date(date);
-    today.setHours(0, 0, 0, 0); // Ajustar para o início do dia
+    today.setHours(0, 0, 0, 0);
 
     if (selectedDate < today) {
-      return false; // Data está no passado
+      return false;
     }
 
     const minDate = new Date(today);
-    minDate.setDate(today.getDate() + 7); // Data mínima permitida é hoje + 7 dias
+    minDate.setDate(today.getDate() + 6);
 
     if (selectedDate < minDate) {
-      return false; // Data está antes da data mínima permitida
+      return false;
     }
 
-    return true; // Data é válida
+    return true;
   };
 
-  // Função para gerar um token aleatório
   const generateToken = () => {
     const characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -133,7 +131,6 @@ const MultidisciplinarForm = () => {
     return token;
   };
 
-  // Manipulador de mudanças no formulário
   const handleChange = (e) => {
     const { name, value } = e.target;
     const newValue = name === "data" ? validateDate(value) : value;
@@ -141,11 +138,9 @@ const MultidisciplinarForm = () => {
     setFormData({ ...formData, [name]: newValue });
   };
 
-  // Manipulador de submissão do formulário
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validação da data
     if (!isDateValid(formData.data)) {
       setErrorDetails(
         "A reserva deve ser feita com pelo menos 7 dias de antecedência e não pode ser para uma data no passado."
@@ -153,17 +148,16 @@ const MultidisciplinarForm = () => {
       return;
     }
 
-    // Gerar um token aleatório antes de enviar
     const token = generateToken();
     setFormData((prevData) => ({ ...prevData, token }));
 
     try {
       const response = await axios.post(
         "https://pdr-auth.onrender.com/multidisciplinar/register",
-        { ...formData, token } // Incluir o token gerado na solicitação
+        { ...formData, token }
       );
       setMessage(response.data.message);
-      setErrorDetails(""); // Limpar detalhes de erro em caso de sucesso
+      setErrorDetails("");
       setFormData({
         professor: "",
         email: "",
@@ -181,12 +175,12 @@ const MultidisciplinarForm = () => {
         token: "Não",
         status: "Não",
       });
-      navigate(`/sucesso/${token}`); // Redirecionar para a página de sucesso com o token
+      navigate(`/sucesso/${token}`);
     } catch (error) {
       if (error.response && error.response.data) {
-        setErrorDetails(error.response.data.message); // Configurar detalhes do erro
+        setErrorDetails(error.response.data.message);
       } else {
-        setErrorDetails("Erro ao registrar formulário"); // Mensagem de erro genérica
+        setErrorDetails("Erro ao registrar formulário");
       }
     }
   };
