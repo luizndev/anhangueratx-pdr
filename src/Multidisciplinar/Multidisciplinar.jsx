@@ -93,9 +93,8 @@ const MultidisciplinarForm = () => {
       return today.toISOString().split("T")[0]; // Ajustar para hoje se a data estiver no passado
     }
 
-    const daysUntilNextWeek = 7 - today.getDay(); // Dias até o mesmo dia da próxima semana
     const minDate = new Date(today);
-    minDate.setDate(today.getDate() + daysUntilNextWeek); // Data mínima permitida é hoje + dias até a mesma semana
+    minDate.setDate(today.getDate() + 7); // Data mínima permitida é hoje + 7 dias
 
     if (selectedDate < minDate) {
       return minDate.toISOString().split("T")[0]; // Ajustar para a data mínima se a data estiver antes disso
@@ -113,9 +112,8 @@ const MultidisciplinarForm = () => {
       return false; // Data está no passado
     }
 
-    const daysUntilNextWeek = 7 - today.getDay(); // Dias até o mesmo dia da próxima semana
     const minDate = new Date(today);
-    minDate.setDate(today.getDate() + daysUntilNextWeek); // Data mínima permitida é hoje + dias até a mesma semana
+    minDate.setDate(today.getDate() + 7); // Data mínima permitida é hoje + 7 dias
 
     if (selectedDate < minDate) {
       return false; // Data está antes da data mínima permitida
