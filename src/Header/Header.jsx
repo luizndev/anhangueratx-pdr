@@ -8,6 +8,7 @@ import { FaBook } from "react-icons/fa6";
 import { FaListCheck } from "react-icons/fa6";
 import { IoLogOut } from "react-icons/io5";
 import { IoSearchSharp } from "react-icons/io5";
+import { FaEye } from "react-icons/fa6";
 
 const Menu = () => {
   const [username, setUsername] = useState("");
@@ -66,7 +67,9 @@ const Menu = () => {
         navigate(`/multidisciplinar/${id}`);
         break;
       case "Equipamento":
-        navigate(`/equipamento/${id}`);
+        navigate(
+          `https://anhangueratx.github.io/reservas/pages/equipamentos.html`
+        );
         break;
       default:
         break;
@@ -127,6 +130,11 @@ const Menu = () => {
             <li className="orientacoes">
               <Link to={`/orientacoes`}>
                 <FaBook /> Orientações
+              </Link>
+            </li>
+            <li>
+              <Link to={`/visualizacao`}>
+                <FaEye /> Visualizar Ocupações
               </Link>
             </li>
             <li className="logout" onClick={handleLogout}>

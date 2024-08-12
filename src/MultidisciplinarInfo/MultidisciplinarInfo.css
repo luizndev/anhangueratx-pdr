@@ -80,6 +80,16 @@ a{
   text-decoration: none;
 }
 
+.dashboardRight ul li a{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dashboardRight ul li a svg{
+  height: 11px;
+}
+
 .dashboardRight ul li{
   user-select: none;
   cursor: pointer;
@@ -306,6 +316,7 @@ tbody tr:nth-child(odd) {
 }
 
 tbody td {
+  max-height: 300px;
   padding: 10px;
   border-bottom: 1px solid #18191b7d; /* Linha de separação para as células */
 }
@@ -413,4 +424,18 @@ button:active {
   align-items: end;
   justify-content: end;
   width: 100%;
+}
+
+
+#buttonRoteiro{
+  padding: 10px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  border-radius: 5px;
+  background-color: #eebb30dc;
+  color: #18191b;
+}
+
+.no-wrap {
+  white-space: nowrap;
 }

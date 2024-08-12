@@ -13,6 +13,7 @@ import Informatica from "./Informatica/Informatica.jsx";
 import BuscarToken from "./Buscartoken/Index.jsx";
 import Sucesso from "./Sucesso/Sucesso.jsx";
 import Orientacoes from "./Orientacoes/Orientacoes.jsx";
+import Visualizacao from "./Visualizacao/Visualizacao.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/orientacoes" element={<Orientacoes />} />
+        <Route path="/visualizacao" element={<Visualizacao />} />
         <Route path="/multidisciplinar/:id" element={<Multidisciplinar />} />
         <Route path="/admininfo" element={<BaseInformatica />} />
         <Route path="/solicitacoes/:id" element={<Solicitacoes />} />

@@ -185,13 +185,13 @@ const MultidisciplinarInfo = () => {
                 <th>Alunos</th>
                 <th>Laboratório</th>
                 <th>Curso</th>
-                <th>Turno</th>
                 <th>Semestre</th>
                 <th>Disciplinar</th>
                 <th>Tema</th>
                 <th>Roteiro</th>
                 <th>Observação</th>
                 <th>Token</th>
+                <th>Botões de Ação</th>
               </tr>
             </thead>
             <tbody>
@@ -200,27 +200,31 @@ const MultidisciplinarInfo = () => {
                   if (role === "user") {
                     return item.userID === id;
                   } else if (role === "ti" || role === "labs") {
-                    return true; // Mostra todos os itens se a role for "ti" ou "labs"
+                    return true;
                   }
-                  return false; // Caso padrão, não mostra nada
+                  return false;
                 })
                 .map((item, index) => (
                   <tr key={index}>
-                    <td>{item.professor}</td>
-                    <td>{item.email}</td>
-                    <td>{item.data}</td>
-                    <td>{item.modalidade}</td>
-                    <td>{item.alunos}</td>
-                    <td>{item.laboratorio}</td>
-                    <td>{item.curso}</td>
-                    <td>{item.semestre}</td>
-                    <td>{item.disciplina}</td>
-                    <td>{item.tema}</td>
-                    <td>
+                    <td className="no-wrap" title={item.professor}>
+                      {item.professor}
+                    </td>
+                    <td title={item.email}>{item.email}</td>
+                    <td title={item.data}>{item.data}</td>
+                    <td title={item.modalidade}>{item.modalidade}</td>
+                    <td title={item.alunos}>{item.alunos}</td>
+                    <td title={item.laboratorio}>{item.laboratorio}</td>
+                    <td title={item.curso}>{item.curso}</td>
+                    <td title={item.semestre}>{item.semestre}</td>
+                    <td title={item.disciplina}>{item.disciplina}</td>
+                    <td title={item.tema}>{item.tema}</td>
+                    <td className="no-wrap" id="buttonRoteiro">
                       <Link to={item.roteiro}>Ver Roteiro</Link>
                     </td>
-                    <td>{item.observacao}</td>
-                    <td>{item.token}</td>
+                    <td title={item.observacao}>{item.observacao}</td>
+                    <td className="no-wrap" title={item.token}>
+                      {item.token}
+                    </td>
                     <td className="buttonOption">
                       <button onClick={() => handleConfirm(item)}>
                         <FaCheck />
