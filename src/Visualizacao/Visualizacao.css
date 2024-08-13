@@ -22,12 +22,12 @@ header{
   box-shadow: 0 4px 38px rgba(0, 0, 0, 0.18);
 }
 
-.planilha{
-  width: 100%;
-  height: 80dvh;
-}
 
 .planilha iframe{
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(0%,-50%);
   width: 100%;
   height: 100%;
 }

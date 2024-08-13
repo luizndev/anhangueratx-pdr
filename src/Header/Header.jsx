@@ -134,7 +134,7 @@ const Menu = () => {
             </li>
             <li>
               <Link to={`/visualizacao`}>
-                <FaEye /> Visualizar Ocupações
+                <FaEye /> Reservas TI
               </Link>
             </li>
             <li className="logout" onClick={handleLogout}>

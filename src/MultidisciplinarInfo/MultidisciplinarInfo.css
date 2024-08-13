@@ -432,7 +432,6 @@ button:active {
   flex-shrink: 0;
   white-space: nowrap;
   border-radius: 5px;
-  max-height: 40px;
   background-color: #eebb30dc;
   color: #18191b;
 }

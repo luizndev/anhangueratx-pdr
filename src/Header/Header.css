@@ -98,6 +98,9 @@ a{
 
 .profile{
   display: flex;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   align-items: center;
   gap: 5px;
   color: white;
@@ -232,10 +235,4 @@ a{
   width: 215px !important;
 }
 
-.orientacoes{
-  margin-left: -15px;
-}
 
-.logout{
-  margin-left: -15px;
-}
