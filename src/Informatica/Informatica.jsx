@@ -334,6 +334,11 @@ const InformaticaForm = () => {
         <div className="inputbox" style={{ display: "none" }}>
           <input type="text" value={formData.status} name="status" readOnly />
         </div>
+        {message && <div className="message">{message}</div>}
+        {errorDetails && (
+          <div className="error-details">{errorDetails}</div>
+        )}{" "}
+        {/* Exibir detalhes do erro */}
         <div className="inputbox">
           <input
             id="button-box-sucess"
@@ -341,11 +346,6 @@ const InformaticaForm = () => {
             value="FINALIZAR SUA SOLICITAÇÃO"
           />
         </div>
-        {message && <div className="message">{message}</div>}
-        {errorDetails && (
-          <div className="error-details">{errorDetails}</div>
-        )}{" "}
-        {/* Exibir detalhes do erro */}
       </form>
     </div>
   );
