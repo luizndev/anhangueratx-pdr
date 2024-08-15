@@ -87,7 +87,18 @@ form{
 }
 
 
-.error-message{
+.message{
+   transition: 1.3s ease-in-out;
+  border: 1px solid #ffff00;
+  color: #ffff00 !important;
+  border-radius: var(--border-radius);
+  background-color: rgba(255, 255, 0, 0.24);
+  padding: 20px;
+}
+  
+
+
+.error-details{
   transition: 1.3s ease-in-out;
   border: 1px solid red;
   color: red !important;
