@@ -58,23 +58,26 @@ const Menu = () => {
   }, [id]);
 
   const handleSelect = (option) => {
-    setSelectedOption(option);
-    switch (option.value) {
-      case "Informatica":
-        navigate(`/informatica/${id}`);
-        break;
-      case "Multidisciplinar":
-        navigate(`/multidisciplinar/${id}`);
-        break;
-      case "Equipamento":
-        navigate(
-          `https://anhangueratx.github.io/reservas/pages/equipamentos.html`
-        );
-        break;
-      default:
-        break;
-    }
-  };
+  setSelectedOption(option);
+  switch (option.value) {
+    case "Informatica":
+      navigate(`/informatica/${id}`);
+      break;
+    case "Multidisciplinar":
+      navigate(`/multidisciplinar/${id}`);
+      break;
+    case "Equipamento":
+      window.open(
+        'https://anhangueratx.github.io/reservas/pages/equipamentos.html',
+        '_blank',
+        'noopener,noreferrer'
+      );
+      break;
+    default:
+      break;
+  }
+};
+
 
   const handleLogout = () => {
     localStorage.removeItem("token");
