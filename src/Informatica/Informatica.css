@@ -85,3 +85,13 @@ form{
 .title-solic span{
   color: rgba(255, 255, 255, 0.375);
 }
+
+
+.error-message{
+  transition: 1.3s ease-in-out;
+  border: 1px solid red;
+  color: red !important;
+  border-radius: var(--border-radius);
+  background-color: rgba(255, 0, 0, 0.24);
+  padding: 20px;
+}
