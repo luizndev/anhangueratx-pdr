@@ -144,7 +144,7 @@ const BaseInformatica = () => {
 
       <div>
         <h2>Dados de Informática</h2>
-        <table>
+        <table id="displayTable">
           <thead>
             <tr>
               <th>Professor</th>
