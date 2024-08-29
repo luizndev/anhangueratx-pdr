@@ -168,7 +168,7 @@ const Solicitacoes = () => {
             />
           </div>
         </div>
-        <table>
+        <table id="tableView">
           <thead>
             <tr>
               <th>Professor</th>

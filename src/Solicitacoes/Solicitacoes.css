@@ -232,10 +232,7 @@ a{
   width: 215px !important;
 }
 
-.orientacoes{
-  margin-left: -15px;
-  margin-right: 10px;
-}
+
 /* Estilo para a tabela com rolagem horizontal */
 .tableContainer {
   overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
@@ -243,15 +240,7 @@ a{
   width: 100%; /* Garante que a largura da tabela seja controlada pelo contêiner */
 }
 
-/* Estilo específico para a tabela dentro do contêiner */
-table {
-  width: 100%; /* Garante que a tabela ocupe toda a largura do contêiner */
-  min-width: 600px; /* Define uma largura mínima para a tabela, ajuste conforme necessário */
-  border-collapse: collapse; /* Remove espaços entre bordas */
-  font-size: 16px;
-  text-align: left;
-  border-radius: 8px;
-}
+
 
 /* Estilo para a barra de rolagem horizontal */
 .tableContainer::-webkit-scrollbar {
@@ -412,4 +401,12 @@ button:active {
   justify-content: end;
   width: 100%;
   margin-bottom: 10px;
+}
+
+#tableView{
+  width: 85%; 
+  border-collapse: collapse;
+  font-size: 16px;
+  text-align: left;
+  border-radius: 8px;
 }

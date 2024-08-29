@@ -98,8 +98,9 @@ a{
 
 .profile{
   display: flex;
-  max-width: 200px;
+  max-width: 150px;
   overflow: hidden;
+  text-transform: uppercase;
   text-overflow: ellipsis;
   align-items: center;
   gap: 5px;
