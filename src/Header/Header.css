@@ -98,16 +98,17 @@ a{
 
 .profile{
   display: flex;
-  max-width: 150px;
-  overflow: hidden;
-  text-transform: uppercase;
-  text-overflow: ellipsis;
+  width: 150px;
   align-items: center;
   gap: 5px;
   color: white;
 }
 
 .profile p{
+  width: 150px;
+  overflow: hidden;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
   color: white;
 }
 
