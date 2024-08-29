@@ -70,6 +70,7 @@ const InformaticaForm = () => {
             setFormData((prevData) => ({
               ...prevData,
               professor: response.data.user.name,
+              email: response.data.user.email,
               userID: id,
               // Defina outros campos conforme necessário
             }));

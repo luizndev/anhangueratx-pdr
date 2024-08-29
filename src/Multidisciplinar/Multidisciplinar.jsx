@@ -47,6 +47,7 @@ const MultidisciplinarForm = () => {
             setFormData((prevData) => ({
               ...prevData,
               professor: response.data.user.name,
+              email: response.data.user.email,
             }));
           }
         } catch (error) {
