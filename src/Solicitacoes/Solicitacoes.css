@@ -235,9 +235,11 @@ a{
 
 /* Estilo para a tabela com rolagem horizontal */
 .tableContainer {
-  overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
-  overflow-y: hidden; /* Oculta rolagem vertical */
-  width: 100%; /* Garante que a largura da tabela seja controlada pelo contêiner */
+    overflow-x: scroll;
+    overflow-y: scroll;
+    width: 100%;
+    height: 65dvh;
+    border-radius: 11px;
 }
 
 
@@ -399,7 +401,7 @@ button:active {
   display: flex;
   align-items: end;
   justify-content: end;
-  width: 100%;
+  width: 97%;
   margin-bottom: 10px;
 }
 
