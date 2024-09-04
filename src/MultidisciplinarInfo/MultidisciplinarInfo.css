@@ -425,7 +425,7 @@ button:active {
 }
 
 
-#buttonRoteiro{
+#buttonRoteiro a{
   padding: 10px;
   flex-shrink: 0;
   white-space: nowrap;
@@ -434,7 +434,7 @@ button:active {
   color: #18191b;
 }
 
-.no-wrap {
+.no-wrap a{
   white-space: nowrap;
 }
 
