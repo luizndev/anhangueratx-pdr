@@ -259,8 +259,8 @@ const MultidisciplinarInfo = () => {
                     <td title={item.semestre}>{item.semestre}</td>
                     <td title={item.disciplina}>{item.disciplina}</td>
                     <td title={item.tema}>{item.tema}</td>
-                    <td>
-                      <Link  className="no-wrap" id="buttonRoteiro to={item.roteiro}>Ver Roteiro</Link>
+                    <td className="no-wrap" id="buttonRoteiro>
+                      <Link   to={item.roteiro}>Ver Roteiro</Link>
                     </td>
                     <td title={item.observacao}>{item.observacao}</td>
                     <td className="no-wrap" title={item.token}>
