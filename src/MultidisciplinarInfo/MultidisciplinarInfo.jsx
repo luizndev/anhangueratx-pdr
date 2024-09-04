@@ -177,7 +177,7 @@ const MultidisciplinarInfo = () => {
   return (
     <div className="containerDashboard">
       <Menu />
-      <div className="faqs-container">
+{/*       <div className="faqs-container">
         <h1 className="title">Sistema de Reservas</h1>
         {faqs.map((faq, index) => (
           <div key={index} className="faq">
@@ -201,7 +201,7 @@ const MultidisciplinarInfo = () => {
             )}
           </div>
         ))}
-      </div>
+      </div> */}
       <div className="dados">
         <h2>Dados de multidisciplinar</h2>
         <div className="inputFilterContainer">
