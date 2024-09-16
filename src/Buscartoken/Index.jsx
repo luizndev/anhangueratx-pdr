@@ -18,7 +18,7 @@ const Buscastoken = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `https://pdr-auth.onrender.com/buscartoken/${searchToken}`,
+        `https://pdr-auth-ofc.vercel.app//buscartoken/${searchToken}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

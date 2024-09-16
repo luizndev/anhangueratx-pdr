@@ -23,7 +23,7 @@ const Solicitacoes = () => {
       try {
         if (id) {
           const response = await axios.get(
-            `https://pdr-auth.onrender.com/auth/${id}`,
+            `https://pdr-auth-ofc.vercel.app//auth/${id}`,
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -48,7 +48,7 @@ const Solicitacoes = () => {
     const fetchInformaticaData = async () => {
       try {
         const response = await axios.get(
-          `https://pdr-auth.onrender.com/informatica`,
+          `https://pdr-auth-ofc.vercel.app//informatica`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -98,14 +98,14 @@ const Solicitacoes = () => {
     `;
 
     try {
-      await axios.post("https://pdr-auth.onrender.com/send-email", {
+      await axios.post("https://pdr-auth-ofc.vercel.app//send-email", {
         to: "destinatario@outlook.com",
         subject: "Confirmação de Solicitação",
         body: emailBody,
       });
 
       // Atualizar status para "Confirmação"
-      await axios.put(`https://pdr-auth.onrender.com/informatica/${item.id}`, {
+      await axios.put(`https://pdr-auth-ofc.vercel.app//informatica/${item.id}`, {
         status: "Confirmação",
       });
 
@@ -132,7 +132,7 @@ const Solicitacoes = () => {
   const handleDeny = async (item) => {
     // Atualizar status para "Negado"
     try {
-      await axios.put(`https://pdr-auth.onrender.com/informatica/${item.id}`, {
+      await axios.put(`https://pdr-auth-ofc.vercel.app//informatica/${item.id}`, {
         status: "Negado",
       });
 
