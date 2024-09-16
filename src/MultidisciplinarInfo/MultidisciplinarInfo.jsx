@@ -175,115 +175,90 @@ const MultidisciplinarInfo = () => {
   }, [selectedDate, data]); // Atualiza quando selectedDate ou data mudam
 
   return (
-    <div className="containerDashboard">
-      <Menu />
-{/*       <div className="faqs-container">
-        <h1 className="title">Sistema de Reservas</h1>
-        {faqs.map((faq, index) => (
-          <div key={index} className="faq">
-            <button
-              className="question"
-              onClick={() => toggleAccordion(index)}
-            >
-              {faq.professor} - {faq.laboratorio} - {faq.data}
-            </button>
-            {open[index] && (
-              <div className="answer">
-                <p>Email: {faq.email}</p>
-                <p>Modalidade: {faq.modalidade}</p>
-                <p>Alunos: {faq.alunos}</p>
-                <p>Software: {faq.software}</p>
-                <p>Equipamento: {faq.equipamento}</p>
-                <p>Observação: {faq.observacao}</p>
-                <p>Token: {faq.token}</p>
-                <p>UserID: {faq.userID}</p>
-              </div>
-            )}
-          </div>
-        ))}
-      </div> */}
-      <div className="dados">
-        <h2>Dados de multidisciplinar</h2>
-        <div className="inputFilterContainer">
-          <div className="inputFilter">
-            <label htmlFor="dateFilter">Filtrar por Data:</label>
-            <input
-              type="date"
-              id="dateFilter"
-              value={selectedDate}
-              onChange={handleDateChange}
-            />
-          </div>
-        </div>
-        <div className="tableContainer">
-          <table>
-            <thead>
-              <tr>
-                <th>Professor</th>
-                <th>Email</th>
-                <th>Data</th>
-                <th>Modalidade</th>
-                <th>Alunos</th>
-                <th>Laboratório</th>
-                <th>Curso</th>
-                <th>Semestre</th>
-                <th>Disciplinar</th>
-                <th>Tema</th>
-                <th>Roteiro</th>
-                <th>Observação</th>
-                <th>Token</th>
-                <th>Botões de Ação</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredData
-                .filter((item) => {
-                  if (role === "user") {
-                    return item.userID === id;
-                  } else if (role === "ti" || role === "labs") {
-                    return true;
-                  }
-                  return false;
-                })
-                .map((item, index) => (
-                  <tr key={index}>
-                    <td className="no-wrap" title={item.professor}>
-                      {item.professor}
-                    </td>
-                    <td title={item.email}>{item.email}</td>
-                    <td title={item.data}>{item.data}</td>
-                    <td title={item.modalidade}>{item.modalidade}</td>
-                    <td title={item.alunos}>{item.alunos}</td>
-                    <td title={item.laboratorio}>{item.laboratorio}</td>
-                    <td title={item.curso}>{item.curso}</td>
-                    <td title={item.semestre}>{item.semestre}</td>
-                    <td title={item.disciplina}>{item.disciplina}</td>
-                    <td title={item.tema}>{item.tema}</td>
-                    <td className="no-wrap" id="buttonRoteiro>
-                      <Link   to={item.roteiro}>Ver Roteiro</Link>
-                    </td>
-                    <td title={item.observacao}>{item.observacao}</td>
-                    <td className="no-wrap" title={item.token}>
-                      {item.token}
-                    </td>
-                    <td className="buttonOption">
-                      <button onClick={() => handleConfirm(item)}>
-                        <FaCheck />
-                      </button>
-                      <button
-                        className="negado"
-                        onClick={() => handleDeny(item)}
-                      >
-                        <RiCloseLargeFill />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        </div>
+<div className="containerDashboard">
+  <Menu />
+  <div className="dados">
+    <h2>Dados de Multidisciplinar</h2>
+    <div className="inputFilterContainer">
+      <div className="inputFilter">
+        <label htmlFor="dateFilter">Filtrar por Data:</label>
+        <input
+          type="date"
+          id="dateFilter"
+          value={selectedDate}
+          onChange={handleDateChange}
+        />
       </div>
     </div>
+    <div className="tableContainer">
+      <table>
+        <thead>
+          <tr>
+            <th>Professor</th>
+            <th>Email</th>
+            <th>Data</th>
+            <th>Modalidade</th>
+            <th>Alunos</th>
+            <th>Laboratório</th>
+            <th>Curso</th>
+            <th>Semestre</th>
+            <th>Disciplinar</th>
+            <th>Tema</th>
+            <th>Roteiro</th>
+            <th>Observação</th>
+            <th>Token</th>
+            <th>Botões de Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredData
+            .filter((item) => {
+              if (role === "user") {
+                return item.userID === id;
+              } else if (role === "ti" || role === "labs") {
+                return true;
+              }
+              return false;
+            })
+            .map((item, index) => (
+              <tr key={index}>
+                <td className="no-wrap" title={item.professor}>
+                  {item.professor}
+                </td>
+                <td title={item.email}>{item.email}</td>
+                <td title={item.data}>{item.data}</td>
+                <td title={item.modalidade}>{item.modalidade}</td>
+                <td title={item.alunos}>{item.alunos}</td>
+                <td title={item.laboratorio}>{item.laboratorio}</td>
+                <td title={item.curso}>{item.curso}</td>
+                <td title={item.semestre}>{item.semestre}</td>
+                <td title={item.disciplina}>{item.disciplina}</td>
+                <td title={item.tema}>{item.tema}</td>
+                <td className="no-wrap" id="buttonRoteiro">
+                  <Link to={item.roteiro}>Ver Roteiro</Link>
+                </td>
+                <td title={item.observacao}>{item.observacao}</td>
+                <td className="no-wrap" title={item.token}>
+                  {item.token}
+                </td>
+                <td className="buttonOption">
+                  <button onClick={() => handleConfirm(item)}>
+                    <FaCheck />
+                  </button>
+                  <button
+                    className="negado"
+                    onClick={() => handleDeny(item)}
+                  >
+                    <RiCloseLargeFill />
+                  </button>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
   );
 };
 
