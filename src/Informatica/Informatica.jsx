@@ -53,7 +53,7 @@ const InformaticaForm = () => {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            `https://pdr-auth-ofc.vercel.app//auth/${id}`,
+            `https://pdr-auth-ofc.vercel.app/auth/${id}`,
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -160,7 +160,7 @@ const InformaticaForm = () => {
 
     try {
       const response = await axios.post(
-        "https://pdr-auth-ofc.vercel.app//informatica/register",
+        "https://pdr-auth-ofc.vercel.app/informatica/register",
         { ...formData, token } // Incluir o token gerado na solicitação
       );
       setMessage(response.data.message);

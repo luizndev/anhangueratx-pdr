@@ -35,7 +35,7 @@ const Register = () => {
 
     try {
       const response = await fetch(
-        "https://pdr-auth-ofc.vercel.app//auth/register",
+        "https://pdr-auth-ofc.vercel.app/auth/register",
         {
           method: "POST",
           headers: {

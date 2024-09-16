@@ -13,7 +13,7 @@ const Dashboard = () => {
       try {
         if (id) {
           const response = await axios.get(
-            `https://pdr-auth-ofc.vercel.app//auth/${id}`,
+            `https://pdr-auth-ofc.vercel.app/auth/${id}`,
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -37,7 +37,7 @@ const Dashboard = () => {
     const fetchInformaticaData = async () => {
       try {
         const response = await axios.get(
-          `https://pdr-auth-ofc.vercel.app//informatica`,
+          `https://pdr-auth-ofc.vercel.app/informatica`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

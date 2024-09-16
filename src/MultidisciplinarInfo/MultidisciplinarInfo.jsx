@@ -18,7 +18,7 @@ const MultidisciplinarInfo = () => {
   // Função para buscar dados da API
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://pdr-auth-ofc.vercel.app//multidisciplinar'); // Ajuste a URL conforme necessário
+      const response = await axios.get('https://pdr-auth-ofc.vercel.app/multidisciplinar'); // Ajuste a URL conforme necessário
       setFaqs(response.data);
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
@@ -29,7 +29,7 @@ const MultidisciplinarInfo = () => {
     try {
       if (id) {
         const response = await axios.get(
-          `https://pdr-auth-ofc.vercel.app//auth/${id}`,
+          `https://pdr-auth-ofc.vercel.app/auth/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -50,7 +50,7 @@ const MultidisciplinarInfo = () => {
   const fetchInformaticaData = async () => {
     try {
       const response = await axios.get(
-        `https://pdr-auth-ofc.vercel.app//multidisciplinar`,
+        `https://pdr-auth-ofc.vercel.app/multidisciplinar`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -104,7 +104,7 @@ const MultidisciplinarInfo = () => {
     `;
 
     try {
-      await axios.post("https://pdr-auth-ofc.vercel.app//send-email", {
+      await axios.post("https://pdr-auth-ofc.vercel.app/send-email", {
         to: "destinatario@outlook.com",
         subject: "Confirmação de Solicitação",
         body: emailBody,
@@ -112,7 +112,7 @@ const MultidisciplinarInfo = () => {
 
       // Atualizar status para "Confirmação"
       await axios.put(
-        `https://pdr-auth-ofc.vercel.app//multidisciplinar/${item.id}`,
+        `https://pdr-auth-ofc.vercel.app/multidisciplinar/${item.id}`,
         {
           status: "Confirmação",
         }
@@ -142,7 +142,7 @@ const MultidisciplinarInfo = () => {
     // Atualizar status para "Negado"
     try {
       await axios.put(
-        `https://pdr-auth-ofc.vercel.app//multidisciplinar/${item.id}`,
+        `https://pdr-auth-ofc.vercel.app/multidisciplinar/${item.id}`,
         {
           status: "Negado",
         }

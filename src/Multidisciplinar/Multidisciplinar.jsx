@@ -35,7 +35,7 @@ const MultidisciplinarForm = () => {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            `https://pdr-auth-ofc.vercel.app//auth/${id}`,
+            `https://pdr-auth-ofc.vercel.app/auth/${id}`,
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -154,7 +154,7 @@ const MultidisciplinarForm = () => {
 
     try {
       const response = await axios.post(
-        "https://pdr-auth-ofc.vercel.app//multidisciplinar/register",
+        "https://pdr-auth-ofc.vercel.app/multidisciplinar/register",
         { ...formData, token }
       );
       setMessage(response.data.message);
