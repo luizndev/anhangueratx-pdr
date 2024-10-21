@@ -171,7 +171,7 @@ const Solicitacoes = () => {
         <table id="tableView">
           <thead>
             <tr>
-              <th>Professor</th>
+              <th id="collumProf">Professor</th>
               <th>Email</th>
               <th>Data</th>
               <th>Modalidade</th>
@@ -196,7 +196,7 @@ const Solicitacoes = () => {
               })
               .map((item, index) => (
                 <tr key={index}>
-                  <td>{item.professor}</td>
+                  <td id="collumProf">{item.professor}</td>
                   <td>{item.email}</td>
                   <td>{item.data}</td>
                   <td>{item.modalidade}</td>
