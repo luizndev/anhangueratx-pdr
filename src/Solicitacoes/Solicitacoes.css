@@ -412,3 +412,10 @@ button:active {
   text-align: left;
   border-radius: 8px;
 }
+
+
+#collumProf{
+    display: table-cell;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+}
