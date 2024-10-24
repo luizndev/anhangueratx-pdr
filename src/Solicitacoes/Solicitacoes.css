@@ -418,4 +418,9 @@ button:active {
     display: table-cell;
     vertical-align: inherit;
     unicode-bidi: isolate;
+    cursor: pointer;
+}
+
+#collumEmail{
+  cursor: pointer;
 }
