@@ -199,8 +199,8 @@ const Solicitacoes = () => {
               })
               .map((item, index) => (
                 <tr key={index}>
-                  <td onClick={copiarEmail(item.professor)} id="collumProf">{item.professor}</td>
-                  <td onClick={copiarEmail(item.email)}>{item.email}</td>
+                  <td onClick={copiarEmail({item.professor})} id="collumProf">{item.professor}</td>
+                  <td onClick={copiarEmail({item.email})} id="collumEmail">{item.email}</td>
                   <td>{item.data}</td>
                   <td>{item.modalidade}</td>
                   <td>{item.alunos}</td>
