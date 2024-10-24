@@ -5,7 +5,7 @@ import axios from "axios";
 import "./Solicitacoes.css";
 import { FaCheck } from "react-icons/fa";
 import "react-dropdown/style.css";
-import Menu from "../Header/Header.jsx"; // Verifique se o caminho está correto
+import Menu from "../Header/Header.jsx";
 
 const Solicitacoes = () => {
   const [role, setRole] = useState("");
@@ -42,7 +42,7 @@ const Solicitacoes = () => {
     };
 
     fetchUserData();
-  }, [id]); // Adicione 'id' ao array de dependências
+  }, [id]);
 
   useEffect(() => {
     const fetchInformaticaData = async () => {
@@ -59,7 +59,7 @@ const Solicitacoes = () => {
         if (response.status === 200) {
           console.log(response.data);
           setData(response.data);
-          setFilteredData(response.data); // Inicialmente, mostra todos os dados
+          setFilteredData(response.data);
         }
       } catch (error) {
         console.error("Error fetching informatica data:", error);
@@ -67,7 +67,7 @@ const Solicitacoes = () => {
     };
 
     fetchInformaticaData();
-  }, []); // Array de dependências vazio para executar apenas uma vez
+  }, []);
 
   useEffect(() => {
     const filterByDate = () => {
@@ -75,15 +75,22 @@ const Solicitacoes = () => {
         const filtered = data.filter((item) => item.data === selectedDate);
         setFilteredData(filtered);
       } else {
-        setFilteredData(data); // Se nenhuma data for selecionada, mostra todos os dados
+        setFilteredData(data);
       }
     };
 
     filterByDate();
-  }, [selectedDate, data]); // Atualiza quando selectedDate ou data mudam
+  }, [selectedDate, data]);
+
+  const copiarEmail = async (texto) => {
+    try {
+        await navigator.clipboard.writeText(texto)
+    } catch (err) {
+        console.log("Erro")
+    }
+  };
 
   const handleConfirm = async (item) => {
-    // Enviar email para Outlook
     const emailBody = `
       Professor: ${item.professor}
       Email: ${item.email}
@@ -104,12 +111,10 @@ const Solicitacoes = () => {
         body: emailBody,
       });
 
-      // Atualizar status para "Confirmação"
       await axios.put(`https://pdr-auth-ofc.vercel.app/informatica/${item.id}`, {
         status: "Confirmação",
       });
 
-      // Atualizar a lista de dados para refletir a mudança
       setData((prevData) =>
         prevData.map((dataItem) =>
           dataItem.id === item.id
@@ -130,13 +135,11 @@ const Solicitacoes = () => {
   };
 
   const handleDeny = async (item) => {
-    // Atualizar status para "Negado"
     try {
       await axios.put(`https://pdr-auth-ofc.vercel.app/informatica/${item.id}`, {
         status: "Negado",
       });
 
-      // Atualizar a lista de dados para refletir a mudança
       setData((prevData) =>
         prevData.map((dataItem) =>
           dataItem.id === item.id ? { ...dataItem, status: "Negado" } : dataItem
@@ -190,14 +193,14 @@ const Solicitacoes = () => {
                 if (role === "user") {
                   return item.userID === id;
                 } else if (role === "ti" || role === "labs") {
-                  return true; // Mostra todos os itens se a role for "ti" ou "labs"
+                  return true; 
                 }
-                return false; // Caso padrão, não mostra nada
+                return false; 
               })
               .map((item, index) => (
                 <tr key={index}>
-                  <td id="collumProf">{item.professor}</td>
-                  <td>{item.email}</td>
+                  <td onClick={copiarEmail(item.professor)} id="collumProf">{item.professor}</td>
+                  <td onClick={copiarEmail(item.email)}>{item.email}</td>
                   <td>{item.data}</td>
                   <td>{item.modalidade}</td>
                   <td>{item.alunos}</td>
