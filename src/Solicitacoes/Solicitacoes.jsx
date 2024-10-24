@@ -82,14 +82,6 @@ const Solicitacoes = () => {
     filterByDate();
   }, [selectedDate, data]);
 
-  const copiarEmail = async (texto) => {
-    try {
-        await navigator.clipboard.writeText(texto)
-    } catch (err) {
-        console.log("Erro")
-    }
-  };
-
   const handleConfirm = async (item) => {
     const emailBody = `
       Professor: ${item.professor}
@@ -199,8 +191,8 @@ const Solicitacoes = () => {
               })
               .map((item, index) => (
                 <tr key={index}>
-                  <td onClick={copiarEmail({item.professor})} id="collumProf">{item.professor}</td>
-                  <td onClick={copiarEmail({item.email})} id="collumEmail">{item.email}</td>
+                  <td id="collumProf">{item.professor}</td>
+                  <td id="collumEmail">{item.email}</td>
                   <td>{item.data}</td>
                   <td>{item.modalidade}</td>
                   <td>{item.alunos}</td>
