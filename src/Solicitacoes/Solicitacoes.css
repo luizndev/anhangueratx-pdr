@@ -418,9 +418,9 @@ button:active {
     display: table-cell;
     vertical-align: inherit;
     unicode-bidi: isolate;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 #collumEmail{
-  cursor: pointer;
+  cursor: pointer !important;
 }
