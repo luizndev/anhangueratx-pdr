@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import "./Dashboard.css";
 import "react-dropdown/style.css";
-import Menu from "../Header/Header.jsx"; // Corrected path
+import Menu from "../Header/Header.jsx"; 
 
 const Dashboard = () => {
   const { id } = useParams();
@@ -31,7 +31,7 @@ const Dashboard = () => {
     };
 
     fetchUserData();
-  }, [id]); // Add id to the dependency array
+  }, [id]);
 
   useEffect(() => {
     const fetchInformaticaData = async () => {
@@ -54,7 +54,7 @@ const Dashboard = () => {
     };
 
     fetchInformaticaData();
-  }, []); // Empty dependency array to run only once
+  }, []);
 
   return (
     <div className="containerDashboard">

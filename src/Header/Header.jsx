@@ -4,9 +4,12 @@ import axios from "axios";
 import "./Header.css";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
+import { IoMdLogOut } from "react-icons/io";
+import { IoListOutline } from "react-icons/io5";
 
 const Menu = () => {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
   const navigate = useNavigate();
@@ -32,7 +35,7 @@ const Menu = () => {
 
   useEffect(() => {
     if (!id) {
-      navigate("/login"); // Redireciona para /login se não existir id no localStorage
+      navigate("/login");
     }
   }, [id, navigate]);
 
@@ -54,6 +57,7 @@ const Menu = () => {
           if (response.status === 200) {
             console.log(response.data);
             setUsername(response.data.user.name);
+            setEmail(response.data.user.email);
             setRole(response.data.user.role);
           }
         }
@@ -123,9 +127,18 @@ const Menu = () => {
             <li className="orientacoes">
               <Link to={`/orientacoes`}>Orientações</Link>
             </li>
-            <li className="logout" onClick={handleLogout}>
-              Logout
+
+            {role === "user" && (
+            <li className="profileoption">
+              <Link to={`/minhassolicitacoes/${username}/${email}`}>
+                  Minhas Solicitações
+              </Link>
             </li>
+          )}
+
+          <li className="logout" onClick={handleLogout}>
+            Fazer Logout
+          </li>
           </ul>
           <div
             className="profile"

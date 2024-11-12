@@ -12,6 +12,7 @@ import MultidisciplinarInfo from "./MultidisciplinarInfo/MultidisciplinarInfo.js
 import Informatica from "./Informatica/Informatica.jsx";
 import BuscarToken from "./Buscartoken/Index.jsx";
 import Sucesso from "./Sucesso/Sucesso.jsx";
+import Minhas from "./MinhasSolicitacoes/MinhasSolicitacoes.jsx";
 import Orientacoes from "./Orientacoes/Orientacoes.jsx";
 import Visualizacao from "./Visualizacao/Visualizacao.jsx";
 
@@ -32,6 +33,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           element={<MultidisciplinarInfo />}
         />
         <Route path="/dashboard/:id" element={<Dashboard />} />
+        <Route path="/minhassolicitacoes/:name/:email" element={<Minhas />} />
         <Route path="/sucesso/:token" element={<Sucesso />} />
         <Route path="/Informatica/:id" element={<Informatica />} />
         <Route path="/buscartoken/:id" element={<BuscarToken />} />
