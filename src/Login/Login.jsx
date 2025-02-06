@@ -3,12 +3,18 @@ import LogoTypeBranco from "../assets/Logotype-Branco.png";
 import { FaChevronRight } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useHistory } from "react-router-dom";
 import axios from "axios"; // Make sure you have axios installed
 import "./Login.css";
 import { BiSolidErrorAlt } from "react-icons/bi";
 
 const Login = () => {
+  const history = useHistory();
+
+  useEffect(() => {
+    // Redireciona após o carregamento da página
+    history.push('https://anhangueratx-pdr-v2.vercel.app/login');  // Substitua '/novo-link' pelo link desejado
+  }, [history]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
